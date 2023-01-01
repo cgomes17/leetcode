@@ -1,0 +1,28 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "watch": {
+    "test": "{src,test}/*.js"
+  },
+  "scripts": {
+    "start": "tsc -w & nodemon -q -w dist dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgomes17/leetcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgomes17/leetcode/issues"
+  },
+  "homepage": "https://github.com/cgomes17/leetcode#readme",
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
