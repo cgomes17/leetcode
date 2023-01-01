@@ -18,16 +18,12 @@ const symbols: { key: string; value: number; subtractSymbols?: string[] }[] = [
 
 function romanToInt(s: string): number {
   return symbols.reduce((accumulator, symbol) => {
-    return s
-      .match(symbol.key)
-      ?.map((match, index, array) => {
-        if (index !== array.length - 1 && symbol.subtractSymbols?.includes(array[index + 1])) return -symbol.value;
+    const test = s.match(new RegExp(symbol.key, "g"))?.map((match, index, array) => {
+      if (index !== array.length - 1 && symbol.subtractSymbols?.includes(array[index + 1])) return -symbol.value;
 
-        return symbol.value;
-      })
-      .reduce((acc, count) => acc + count, 0);
+      return symbol.value;
+    });
+    return test?.length ? accumulator + test.reduce((acc, count) => acc + count, 0) : accumulator;
   }, 0);
 }
-
-console.log(romanToInt("III"));
 // @lc code=end
