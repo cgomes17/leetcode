@@ -17,13 +17,17 @@ const symbols: { key: string; value: number; subtractSymbols?: string[] }[] = [
 ];
 
 function romanToInt(s: string): number {
-  return symbols.reduce((accumulator, symbol) => {
-    const test = s.match(new RegExp(symbol.key, "g"))?.map((match, index, array) => {
-      if (index !== array.length - 1 && symbol.subtractSymbols?.includes(array[index + 1])) return -symbol.value;
+  return [...s].reduce((count, letter, index, letters) => {
+    const symbol = symbols.find((item) => item.key === letter);
+    if (!symbol) return count;
 
-      return symbol.value;
-    });
-    return test?.length ? accumulator + test.reduce((acc, count) => acc + count, 0) : accumulator;
+    if (symbol.subtractSymbols?.includes(letters[index + 1])) return count - symbol.value;
+
+    return count + symbol.value;
   }, 0);
 }
+
 // @lc code=end
+console.log(romanToInt("III"));
+console.log(romanToInt("LVIII"));
+console.log(romanToInt("MCMXCIV"));

@@ -9,11 +9,11 @@
     "typeRoots": ["node_modules/@types"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "lib": ["es2019", "dom"],
+    "lib": ["es2021", "dom"],
     "sourceMap": true,
-    "target": "ES2019",
+    "target": "ES2021",
     "watch": true,
     "outFile": "dist/main.js"
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "submitted"]
 }

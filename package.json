@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "watch": {
-    "test": "{src,test}/*.js"
-  },
   "scripts": {
-    "start": "tsc -w & nodemon -q -w dist dist/main.js"
+    "start": "tsc -w & nodemon -w dist dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +21,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "nodemonConfig": {
+    "quiet": true
   }
 }
